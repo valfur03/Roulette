@@ -9,6 +9,7 @@ Game* initializeGame(); //Return a game object
 Game* initializeGame(const int& start_money); //Return a game object with a start money value
 void playGame(std::unique_ptr<Game> &game); // Play the game
 void settings(); // Show the settings and ask the user to choose
+void rules(); // Show the rules
 
 long int start_money = 1000;
 
@@ -35,6 +36,8 @@ int main() {
 			break;
 
 		case 3:
+			rules();
+
 			break;
 		}
 	} while (!quit);
@@ -139,4 +142,17 @@ void settings() {
 			break;
 		}
 	} while (!quit);
+}
+
+void rules() {
+	system("cls");
+	std::cout << "===== REGLES =====" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Vous commencez la partie avec " << start_money << " euros." << std::endl;
+	std::cout << "Vous devez vous enrichir en pariant de l'argent sur un nombre entre 1 et 36." << std::endl;
+	std::cout << "Lorsque vous tombez a zero, c'est perdu !" << std::endl;
+	std::cout << "Bonne chance !" << std::endl;
+	std::cout << std::endl;
+
+	system("pause");
 }
