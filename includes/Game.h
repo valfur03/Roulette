@@ -5,6 +5,7 @@ class Game {
 public:
 
 	Game();
+	Game(const int &start_money);
 	void summary(); // Display some informations about the current game
 	long int proceedBet(); // Proceed the bet of the player
 	void addGain(const long int &gain); // Proceed the bet of the player

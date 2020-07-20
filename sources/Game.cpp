@@ -6,6 +6,10 @@ Game::Game() : m_money(1000) {
 	std::cout << "Partie lancee avec " << m_money << " euros." << std::endl;
 }
 
+Game::Game(const int& start_money) : m_money(start_money) {
+	std::cout << "Partie lancee avec " << m_money << " euros." << std::endl;
+}
+
 void Game::summary() {
 	std::cout << "Vous avez " << m_money << " euros." << std::endl;
 }
