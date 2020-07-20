@@ -33,10 +33,11 @@ int main() {
 
 int menu() {
 	std::cout << "===== MENU =====" << std::endl;
+	std::cout << std::endl;
 	std::cout << "1. Jouer" << std::endl;
 	std::cout << "2. Parametres" << std::endl;
-	std::cout << "3. Règles" << std::endl;
-
+	std::cout << "3. Regles" << std::endl;
+	std::cout << std::endl;
 	std::cout << "Entrez un nombre -> ";
 
 	int choice = 0;
