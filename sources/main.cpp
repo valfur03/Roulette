@@ -42,6 +42,11 @@ int main() {
 			rules();
 
 			break;
+
+		case 4:
+			quit = true;
+
+			break;
 		}
 	} while (!quit);
 
@@ -72,14 +77,15 @@ int menu() {
 	std::cout << "1. Jouer" << std::endl;
 	std::cout << "2. Parametres" << std::endl;
 	std::cout << "3. Regles" << std::endl;
+	std::cout << "4. Quitter" << std::endl;
 	std::cout << std::endl;
 	std::cout << "Entrez un nombre -> ";
 
 	int choice = 0;
 
 
-	while (!(std::cin >> choice) || choice < 1 || choice > 3) { // While the user input isn't valid
-		if (choice < 1 || choice > 3) {
+	while (!(std::cin >> choice) || choice < 1 || choice > 4) { // While the user input isn't valid
+		if (choice < 1 || choice > 4) {
 			std::cout << "Ce nombre n'est pas valide..." << std::endl;
 		}
 		else {
