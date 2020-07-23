@@ -4,6 +4,9 @@
 
 // Functions prototype
 
+void clearConsole();
+void pauseConsole();
+
 int menu(); // Show the main menu and ask the user to choose
 Game* initializeGame(); //Return a game object
 Game* initializeGame(const int& start_money); //Return a game object with a start money value
@@ -18,7 +21,7 @@ int main() {
 	bool quit = false;
 
 	do {
-		system("cls");
+		clearConsole();
 		switch (menu()) {
 		case 1: {
 
@@ -43,6 +46,24 @@ int main() {
 	} while (!quit);
 
 	return 0;
+}
+
+void clearConsole() {
+#ifdef __unix__
+	system("clear");
+#else
+	system("cls");
+
+#endif
+}
+
+void pauseConsole() {
+#ifdef __unix__
+	system("read");
+#else
+	system("pause");
+
+#endif
 }
 
 int menu() {
@@ -81,15 +102,15 @@ Game* initializeGame(const int& start_money) {
 
 void playGame(std::unique_ptr<Game>&game) {
 	do {
-		system("cls");
+		clearConsole();
 		game->summary();
 		long int gain = game->proceedBet();
 		game->addGain(gain);
-		system("pause");
+		pauseConsole();
 	} while (!game->isLost());
 
 	std::cout << std::endl << "Vous n'avez plus d'argent... Vous avez perdu..." << std::endl;
-	system("pause");
+	pauseConsole();
 }
 
 void settings() {
@@ -97,7 +118,7 @@ void settings() {
 	bool quit = false;
 
 	do {
-		system("cls");
+		clearConsole();
 		std::cout << "===== PARAMETRES =====" << std::endl;
 		std::cout << std::endl;
 		std::cout << "1. Argent de depart (actuellement : " << start_money << ")" << std::endl;
@@ -121,7 +142,7 @@ void settings() {
 
 		switch (choice) {
 		case 1:
-			system("cls");
+			clearConsole();
 			std::cout << "Entrez votre argent de depart : ";
 
 
@@ -145,7 +166,7 @@ void settings() {
 }
 
 void rules() {
-	system("cls");
+	clearConsole();
 	std::cout << "===== REGLES =====" << std::endl;
 	std::cout << std::endl;
 	std::cout << "Vous commencez la partie avec " << start_money << " euros." << std::endl;
@@ -154,5 +175,5 @@ void rules() {
 	std::cout << "Bonne chance !" << std::endl;
 	std::cout << std::endl;
 
-	system("pause");
+	pauseConsole();
 }
