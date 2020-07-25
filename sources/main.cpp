@@ -66,8 +66,8 @@ void pauseConsole() {
 #if defined(_WIN32) || defined(_WIN64)
 	system("pause");
 #else
-	std::cout << "Appuyez sur entrée pour continuer..." << std::endl;
-	system("read");
+	std::cout << "Appuyez sur entree pour continuer..." << std::endl;
+	system("read read");
 
 #endif
 }
