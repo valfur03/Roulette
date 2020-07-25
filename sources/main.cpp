@@ -54,19 +54,20 @@ int main() {
 }
 
 void clearConsole() {
-#ifdef __unix__
-	system("clear");
-#else
+#if defined(_WIN32) || defined(_WIN64)
 	system("cls");
+#else
+	system("clear");
 
 #endif
 }
 
 void pauseConsole() {
-#ifdef __unix__
-	system("read");
-#else
+#if defined(_WIN32) || defined(_WIN64)
 	system("pause");
+#else
+	std::cout << "Appuyez sur entrée pour continuer..." << std::endl;
+	system("read");
 
 #endif
 }
